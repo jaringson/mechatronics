@@ -61,12 +61,12 @@ Program Memory  [Origin = 0x200, Length = 0x2a00]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200                0xd6           0x141  (321)
-.text                        0x2d6               0x124           0x1b6  (438)
-.dinit                       0x3fa                0x10            0x18  (24)
-.text                        0x40a                 0xe            0x15  (21)
-.shared.dinit                0x418                 0x2             0x3  (3)
+.text                        0x2d6               0x136           0x1d1  (465)
+.dinit                       0x40c                0x10            0x18  (24)
+.text                        0x41c                 0xe            0x15  (21)
+.shared.dinit                0x42a                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x327  (807) 5%
+                 Total program memory used (bytes):          0x342  (834) 5%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -118,8 +118,8 @@ External Symbols in Program Memory (by address):
                   0x0002d6                  _config_ad
                   0x00033a                  _drive
                   0x00038a                  _StepperInterrupt
-                  0x0003c4                  _config_stepperPWM
-                  0x00040a                  _config_pins
+                  0x0003d6                  _config_stepperPWM
+                  0x00041c                  _config_pins
 
 External Symbols in Program Memory (by name):
 
@@ -131,8 +131,8 @@ External Symbols in Program Memory (by name):
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
                   0x0002d6                  _config_ad
-                  0x00040a                  _config_pins
-                  0x0003c4                  _config_stepperPWM
+                  0x00041c                  _config_pins
+                  0x0003d6                  _config_stepperPWM
                   0x00033a                  _drive
                   0x0002c4                  _main
 
@@ -260,14 +260,14 @@ __FDS
  .debug_abbrev    0x000263         0xb7 build/default/production/StepperInterrupt.o
  .debug_abbrev    0x00031a         0xb7 build/default/production/drive.o
 
-.debug_line       0x000000        0x3a3
+.debug_line       0x000000        0x3b3
  *(.debug_line)
  .debug_line      0x000000         0x4c build/default/production/MAIN.o
  .debug_line      0x00004c         0xa8 build/default/production/config_ad.o
  .debug_line      0x0000f4         0x9b build/default/production/config_pins.o
  .debug_line      0x00018f         0xa6 build/default/production/config_stepperPWM.o
- .debug_line      0x000235         0xb9 build/default/production/StepperInterrupt.o
- .debug_line      0x0002ee         0xb5 build/default/production/drive.o
+ .debug_line      0x000235         0xc9 build/default/production/StepperInterrupt.o
+ .debug_line      0x0002fe         0xb5 build/default/production/drive.o
 
 .debug_frame      0x000000        0x160
  *(.debug_frame)
@@ -994,22 +994,22 @@ __c30_signature
  .ivt._OC1Interrupt
                   0x000018          0x2 build/default/production/MAIN.o
 
-.text             0x0002d6        0x124
+.text             0x0002d6        0x136
  .text            0x0002d6         0x64 build/default/production/config_ad.o
                   0x0002d6                  _config_ad
  .text            0x00033a         0x50 build/default/production/drive.o
                   0x00033a                  _drive
- .text            0x00038a         0x3a build/default/production/StepperInterrupt.o
+ .text            0x00038a         0x4c build/default/production/StepperInterrupt.o
                   0x00038a                  _StepperInterrupt
- .text            0x0003c4         0x36 build/default/production/config_stepperPWM.o
-                  0x0003c4                  _config_stepperPWM
+ .text            0x0003d6         0x36 build/default/production/config_stepperPWM.o
+                  0x0003d6                  _config_stepperPWM
 
-.dinit            0x0003fa         0x10
- .dinit           0x0003fa         0x10 data_init
+.dinit            0x00040c         0x10
+ .dinit           0x00040c         0x10 data_init
 
-.text             0x00040a          0xe
- .text            0x00040a          0xe build/default/production/config_pins.o
-                  0x00040a                  _config_pins
+.text             0x00041c          0xe
+ .text            0x00041c          0xe build/default/production/config_pins.o
+                  0x00041c                  _config_pins
 
-.shared.dinit     0x000418          0x2
- .shared.dinit    0x000418          0x2 shared_data_init
+.shared.dinit     0x00042a          0x2
+ .shared.dinit    0x00042a          0x2 shared_data_init

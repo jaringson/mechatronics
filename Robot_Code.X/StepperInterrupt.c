@@ -25,6 +25,13 @@ void StepperInterrupt(void){
                 direction=Forward;
                 counter=0;
             }
+            break;
+        case Stop:
+            break;
+        case Left:
+            break;
+        case Back:
+            break;
     }
    
     return;
