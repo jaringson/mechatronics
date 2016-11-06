@@ -21,6 +21,8 @@ Command:
   build/default/production/config_stepperPWM.o \
   build/default/production/StepperInterrupt.o \
   build/default/production/drive.o \
+  build/default/production/feedball.o \
+  build/default/production/config_ONEStimer.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp24F16KA301.gld.00 \
   --stack=16 \
@@ -60,13 +62,13 @@ Program Memory  [Origin = 0x200, Length = 0x2a00]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200                0xd6           0x141  (321)
-.text                        0x2d6               0x136           0x1d1  (465)
-.dinit                       0x40c                0x10            0x18  (24)
-.text                        0x41c                 0xe            0x15  (21)
-.shared.dinit                0x42a                 0x2             0x3  (3)
+.text                        0x200                0xec           0x162  (354)
+.text                        0x2ec               0x16e           0x225  (549)
+.dinit                       0x45a                0x10            0x18  (24)
+.text                        0x46a                 0xe            0x15  (21)
+.shared.dinit                0x478                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x342  (834) 5%
+                 Total program memory used (bytes):          0x3b7  (951) 5%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
@@ -80,10 +82,10 @@ Data Memory  [Origin = 0x800, Length = 0x800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.ndata                       0x800                   0             0x2  (2)
-.nbss                        0x802                   0             0x2  (2)
+.nbss                        0x800                   0             0x4  (4)
+.ndata                       0x804                   0             0x2  (2)
 
-                 Total data memory used (bytes):            0x4  (4) <1%
+                 Total data memory used (bytes):            0x6  (6) <1%
 
 
 Dynamic Memory Usage
@@ -91,20 +93,22 @@ Dynamic Memory Usage
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
 heap                             0                                   0  (0)
-stack                        0x804                               0x7fc  (2044)
+stack                        0x806                               0x7fa  (2042)
 
-                 Maximum dynamic memory (bytes):          0x7fc  (2044)
+                 Maximum dynamic memory (bytes):          0x7fa  (2042)
 
 
 External Symbols in Data Memory (by address):
 
-                    0x0800                  _direction
-                    0x0802                  _counter
+                    0x0800                  _counterStepper
+                    0x0802                  _balls
+                    0x0804                  _direction
 
 External Symbols in Data Memory (by name):
 
-                    0x0802                  _counter
-                    0x0800                  _direction
+                    0x0802                  _balls
+                    0x0800                  _counterStepper
+                    0x0804                  _direction
 
 External Symbols in Program Memory (by address):
 
@@ -114,26 +118,30 @@ External Symbols in Program Memory (by address):
                   0x00023c                  __data_init_standard
                   0x0002a8                  __OC1Interrupt
                   0x0002c4                  _main
-                  0x0002d2                  __DefaultInterrupt
-                  0x0002d6                  _config_ad
-                  0x00033a                  _drive
-                  0x00038a                  _StepperInterrupt
-                  0x0003d6                  _config_stepperPWM
-                  0x00041c                  _config_pins
+                  0x0002e8                  __DefaultInterrupt
+                  0x0002ec                  _config_ad
+                  0x000350                  _drive
+                  0x0003a0                  _StepperInterrupt
+                  0x0003ec                  _config_stepperPWM
+                  0x000422                  _feedball
+                  0x000444                  _config_ONEStimer
+                  0x00046a                  _config_pins
 
 External Symbols in Program Memory (by name):
 
-                  0x00038a                  _StepperInterrupt
-                  0x0002d2                  __DefaultInterrupt
+                  0x0003a0                  _StepperInterrupt
+                  0x0002e8                  __DefaultInterrupt
                   0x0002a8                  __OC1Interrupt
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0002d6                  _config_ad
-                  0x00041c                  _config_pins
-                  0x0003d6                  _config_stepperPWM
-                  0x00033a                  _drive
+                  0x000444                  _config_ONEStimer
+                  0x0002ec                  _config_ad
+                  0x00046a                  _config_pins
+                  0x0003ec                  _config_stepperPWM
+                  0x000350                  _drive
+                  0x000422                  _feedball
                   0x0002c4                  _main
 
 Memory Configuration
@@ -164,6 +172,8 @@ LOAD build/default/production/config_pins.o
 LOAD build/default/production/config_stepperPWM.o
 LOAD build/default/production/StepperInterrupt.o
 LOAD build/default/production/drive.o
+LOAD build/default/production/feedball.o
+LOAD build/default/production/config_ONEStimer.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD pPIC24Fxxx
 LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
@@ -189,7 +199,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200         0xd6
+.text             0x000200         0xec
  *(.init)
  .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -201,11 +211,11 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002a8         0x2a build/default/production/MAIN.o
+ .isr.text        0x0002a8         0x40 build/default/production/MAIN.o
                   0x0002a8                  __OC1Interrupt
                   0x0002c4                  _main
- .isr             0x0002d2          0x4 default_isr
-                  0x0002d2                  __DefaultInterrupt
+ .isr             0x0002e8          0x4 default_isr
+                  0x0002e8                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
@@ -241,35 +251,41 @@ __FDS
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x196a
+.debug_info       0x000000       0x1e90
  *(.debug_info)
- .debug_info      0x000000        0x162 build/default/production/MAIN.o
- .debug_info      0x000162        0x82f build/default/production/config_ad.o
- .debug_info      0x000991        0x14f build/default/production/config_pins.o
- .debug_info      0x000ae0        0x97e build/default/production/config_stepperPWM.o
- .debug_info      0x00145e        0x2b1 build/default/production/StepperInterrupt.o
- .debug_info      0x00170f        0x25b build/default/production/drive.o
+ .debug_info      0x000000        0x23d build/default/production/MAIN.o
+ .debug_info      0x00023d        0x82f build/default/production/config_ad.o
+ .debug_info      0x000a6c        0x14f build/default/production/config_pins.o
+ .debug_info      0x000bbb        0x97e build/default/production/config_stepperPWM.o
+ .debug_info      0x001539        0x2a9 build/default/production/StepperInterrupt.o
+ .debug_info      0x0017e2        0x25b build/default/production/drive.o
+ .debug_info      0x001a3d        0x1ab build/default/production/feedball.o
+ .debug_info      0x001be8        0x2a8 build/default/production/config_ONEStimer.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x3d1
+.debug_abbrev     0x000000        0x54f
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xa7 build/default/production/MAIN.o
- .debug_abbrev    0x0000a7         0xb8 build/default/production/config_ad.o
- .debug_abbrev    0x00015f         0x4c build/default/production/config_pins.o
- .debug_abbrev    0x0001ab         0xb8 build/default/production/config_stepperPWM.o
- .debug_abbrev    0x000263         0xb7 build/default/production/StepperInterrupt.o
- .debug_abbrev    0x00031a         0xb7 build/default/production/drive.o
+ .debug_abbrev    0x000000         0xf0 build/default/production/MAIN.o
+ .debug_abbrev    0x0000f0         0xb8 build/default/production/config_ad.o
+ .debug_abbrev    0x0001a8         0x4c build/default/production/config_pins.o
+ .debug_abbrev    0x0001f4         0xb8 build/default/production/config_stepperPWM.o
+ .debug_abbrev    0x0002ac         0xa6 build/default/production/StepperInterrupt.o
+ .debug_abbrev    0x000352         0xb7 build/default/production/drive.o
+ .debug_abbrev    0x000409         0x8e build/default/production/feedball.o
+ .debug_abbrev    0x000497         0xb8 build/default/production/config_ONEStimer.o
 
-.debug_line       0x000000        0x3b3
+.debug_line       0x000000        0x550
  *(.debug_line)
- .debug_line      0x000000         0x4c build/default/production/MAIN.o
- .debug_line      0x00004c         0xa8 build/default/production/config_ad.o
- .debug_line      0x0000f4         0x9b build/default/production/config_pins.o
- .debug_line      0x00018f         0xa6 build/default/production/config_stepperPWM.o
- .debug_line      0x000235         0xc9 build/default/production/StepperInterrupt.o
- .debug_line      0x0002fe         0xb5 build/default/production/drive.o
+ .debug_line      0x000000         0xaf build/default/production/MAIN.o
+ .debug_line      0x0000af         0xa8 build/default/production/config_ad.o
+ .debug_line      0x000157         0x9b build/default/production/config_pins.o
+ .debug_line      0x0001f2         0xa6 build/default/production/config_stepperPWM.o
+ .debug_line      0x000298         0xc9 build/default/production/StepperInterrupt.o
+ .debug_line      0x000361         0xb5 build/default/production/drive.o
+ .debug_line      0x000416         0x9a build/default/production/feedball.o
+ .debug_line      0x0004b0         0xa0 build/default/production/config_ONEStimer.o
 
-.debug_frame      0x000000        0x160
+.debug_frame      0x000000        0x1c0
  *(.debug_frame)
  .debug_frame     0x000000         0x70 build/default/production/MAIN.o
  .debug_frame     0x000070         0x30 build/default/production/config_ad.o
@@ -277,14 +293,18 @@ __FDS
  .debug_frame     0x0000d0         0x30 build/default/production/config_stepperPWM.o
  .debug_frame     0x000100         0x30 build/default/production/StepperInterrupt.o
  .debug_frame     0x000130         0x30 build/default/production/drive.o
+ .debug_frame     0x000160         0x30 build/default/production/feedball.o
+ .debug_frame     0x000190         0x30 build/default/production/config_ONEStimer.o
 
-.debug_str        0x000000         0x92
+.debug_str        0x000000         0xcc
  *(.debug_str)
- .debug_str       0x000000          0xa build/default/production/MAIN.o
- .debug_str       0x00000a         0x2f build/default/production/config_ad.o
- .debug_str       0x000039         0x33 build/default/production/config_stepperPWM.o
- .debug_str       0x00006c         0x13 build/default/production/StepperInterrupt.o
- .debug_str       0x00007f         0x13 build/default/production/drive.o
+ .debug_str       0x000000         0x22 build/default/production/MAIN.o
+ .debug_str       0x000022         0x2f build/default/production/config_ad.o
+ .debug_str       0x000051         0x33 build/default/production/config_stepperPWM.o
+ .debug_str       0x000084         0x22 build/default/production/StepperInterrupt.o
+ .debug_str       0x0000a6         0x13 build/default/production/drive.o
+ .debug_str       0x0000b9          0x9 build/default/production/feedball.o
+ .debug_str       0x0000c2          0xa build/default/production/config_ONEStimer.o
 
 .debug_loc
  *(.debug_loc)
@@ -293,25 +313,29 @@ __FDS
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000         0xf4
+                  0x000000        0x14b
  *(.debug_pubnames)
  .debug_pubnames
-                  0x000000         0x47 build/default/production/MAIN.o
+                  0x000000         0x58 build/default/production/MAIN.o
  .debug_pubnames
-                  0x000047         0x20 build/default/production/config_ad.o
+                  0x000058         0x20 build/default/production/config_ad.o
  .debug_pubnames
-                  0x000067         0x22 build/default/production/config_pins.o
+                  0x000078         0x22 build/default/production/config_pins.o
  .debug_pubnames
-                  0x000089         0x28 build/default/production/config_stepperPWM.o
+                  0x00009a         0x28 build/default/production/config_stepperPWM.o
  .debug_pubnames
-                  0x0000b1         0x27 build/default/production/StepperInterrupt.o
+                  0x0000c2         0x27 build/default/production/StepperInterrupt.o
  .debug_pubnames
-                  0x0000d8         0x1c build/default/production/drive.o
+                  0x0000e9         0x1c build/default/production/drive.o
+ .debug_pubnames
+                  0x000105         0x1f build/default/production/feedball.o
+ .debug_pubnames
+                  0x000124         0x27 build/default/production/config_ONEStimer.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x90
+.debug_aranges    0x000000         0xc0
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/MAIN.o
@@ -325,6 +349,10 @@ __FDS
                   0x000060         0x18 build/default/production/StepperInterrupt.o
  .debug_aranges
                   0x000078         0x18 build/default/production/drive.o
+ .debug_aranges
+                  0x000090         0x18 build/default/production/feedball.o
+ .debug_aranges
+                  0x0000a8         0x18 build/default/production/config_ONEStimer.o
                     0x0000                  WREG0 = 0x0
                     0x0000                  _WREG0 = 0x0
                     0x0002                  WREG1 = 0x2
@@ -945,46 +973,58 @@ LOAD data_init
 LOAD shared_data_init
 
 .debug_pubtypes
-                  0x000090        0x1e5
+                  0x0000c0        0x262
  .debug_pubtypes
-                  0x000090         0x1a build/default/production/MAIN.o
+                  0x0000c0         0x37 build/default/production/MAIN.o
  .debug_pubtypes
-                  0x0000aa         0x9c build/default/production/config_ad.o
+                  0x0000f7         0x9c build/default/production/config_ad.o
  .debug_pubtypes
-                  0x000146         0x12 build/default/production/config_pins.o
+                  0x000193         0x12 build/default/production/config_pins.o
  .debug_pubtypes
-                  0x000158         0xaf build/default/production/config_stepperPWM.o
+                  0x0001a5         0xaf build/default/production/config_stepperPWM.o
  .debug_pubtypes
-                  0x000207         0x37 build/default/production/StepperInterrupt.o
+                  0x000254         0x37 build/default/production/StepperInterrupt.o
  .debug_pubtypes
-                  0x00023e         0x37 build/default/production/drive.o
+                  0x00028b         0x37 build/default/production/drive.o
+ .debug_pubtypes
+                  0x0002c2         0x2f build/default/production/feedball.o
+ .debug_pubtypes
+                  0x0002f1         0x31 build/default/production/config_ONEStimer.o
 
 __c30_signature
-                  0x000275         0x30
+                  0x000322         0x3c
  __c30_signature
-                  0x000275          0x6 build/default/production/MAIN.o
+                  0x000322          0x6 build/default/production/MAIN.o
  __c30_signature
-                  0x00027b          0x6 build/default/production/config_ad.o
+                  0x000328          0x6 build/default/production/config_ad.o
  __c30_signature
-                  0x000281          0x6 build/default/production/config_pins.o
+                  0x00032e          0x6 build/default/production/config_pins.o
  __c30_signature
-                  0x000287          0x6 build/default/production/config_stepperPWM.o
+                  0x000334          0x6 build/default/production/config_stepperPWM.o
  __c30_signature
-                  0x00028d          0x6 build/default/production/StepperInterrupt.o
+                  0x00033a          0x6 build/default/production/StepperInterrupt.o
  __c30_signature
-                  0x000293          0x6 build/default/production/drive.o
+                  0x000340          0x6 build/default/production/drive.o
  __c30_signature
-                  0x000299          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x000346          0x6 build/default/production/feedball.o
  __c30_signature
-                  0x00029f          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x00034c          0x6 build/default/production/config_ONEStimer.o
+ __c30_signature
+                  0x000352          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+ __c30_signature
+                  0x000358          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
 
-.ndata              0x0800          0x2
- .ndata             0x0800          0x2 build/default/production/MAIN.o
-                    0x0800                  _direction
+.nbss               0x0800          0x4
+ .nbss              0x0800          0x4 build/default/production/MAIN.o
+                    0x0800                  _counterStepper
+                    0x0802                  _balls
 
-.nbss               0x0802          0x2
- .nbss              0x0802          0x2 build/default/production/MAIN.o
-                    0x0802                  _counter
+.ndata              0x0804          0x2
+ .ndata             0x0804          0x2 build/default/production/MAIN.o
+                    0x0804                  _direction
+
+.config_FCKSM     0xf80008          0x2
+ .config_FCKSM    0xf80008          0x2 build/default/production/MAIN.o
 
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/MAIN.o
@@ -994,22 +1034,26 @@ __c30_signature
  .ivt._OC1Interrupt
                   0x000018          0x2 build/default/production/MAIN.o
 
-.text             0x0002d6        0x136
- .text            0x0002d6         0x64 build/default/production/config_ad.o
-                  0x0002d6                  _config_ad
- .text            0x00033a         0x50 build/default/production/drive.o
-                  0x00033a                  _drive
- .text            0x00038a         0x4c build/default/production/StepperInterrupt.o
-                  0x00038a                  _StepperInterrupt
- .text            0x0003d6         0x36 build/default/production/config_stepperPWM.o
-                  0x0003d6                  _config_stepperPWM
+.text             0x0002ec        0x16e
+ .text            0x0002ec         0x64 build/default/production/config_ad.o
+                  0x0002ec                  _config_ad
+ .text            0x000350         0x50 build/default/production/drive.o
+                  0x000350                  _drive
+ .text            0x0003a0         0x4c build/default/production/StepperInterrupt.o
+                  0x0003a0                  _StepperInterrupt
+ .text            0x0003ec         0x36 build/default/production/config_stepperPWM.o
+                  0x0003ec                  _config_stepperPWM
+ .text            0x000422         0x22 build/default/production/feedball.o
+                  0x000422                  _feedball
+ .text            0x000444         0x16 build/default/production/config_ONEStimer.o
+                  0x000444                  _config_ONEStimer
 
-.dinit            0x00040c         0x10
- .dinit           0x00040c         0x10 data_init
+.dinit            0x00045a         0x10
+ .dinit           0x00045a         0x10 data_init
 
-.text             0x00041c          0xe
- .text            0x00041c          0xe build/default/production/config_pins.o
-                  0x00041c                  _config_pins
+.text             0x00046a          0xe
+ .text            0x00046a          0xe build/default/production/config_pins.o
+                  0x00046a                  _config_pins
 
-.shared.dinit     0x00042a          0x2
- .shared.dinit    0x00042a          0x2 shared_data_init
+.shared.dinit     0x000478          0x2
+ .shared.dinit    0x000478          0x2 shared_data_init

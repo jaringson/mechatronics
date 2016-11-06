@@ -12,18 +12,18 @@
 void StepperInterrupt(void){
     
       _OC1IF=0; // clear interrupt
-    counter=counter+1;
+    counterStepper=counterStepper+1;
     switch(direction){
         case Forward:
-            if(counter>=three60){
+            if(counterStepper>=three60){
                 direction=Right;
-                counter=0;
+                counterStepper=0;
             }
             break;
         case Right:
-            if(counter>=one80){
+            if(counterStepper>=one80){
                 direction=Forward;
-                counter=0;
+                counterStepper=0;
             }
             break;
         case Stop:

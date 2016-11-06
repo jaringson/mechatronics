@@ -13,10 +13,13 @@
 #include "DEFINTIONS.h"
 // ALL function prototypes should go here
 
+void config_ONEStimer(void);
 void config_ad(void);
 void config_pins(void);
 void config_stepperPWM(void);
 void drive(void);
+void feedball(void);
+
 
 //Interrupt Routines
 void StepperInterrupt(void);

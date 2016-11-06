@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=MAIN.c config_ad.c config_pins.c config_stepperPWM.c StepperInterrupt.c drive.c
+SOURCEFILES_QUOTED_IF_SPACED=MAIN.c config_ad.c config_pins.c config_stepperPWM.c StepperInterrupt.c drive.c feedball.c config_ONEStimer.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/MAIN.o ${OBJECTDIR}/config_ad.o ${OBJECTDIR}/config_pins.o ${OBJECTDIR}/config_stepperPWM.o ${OBJECTDIR}/StepperInterrupt.o ${OBJECTDIR}/drive.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/MAIN.o.d ${OBJECTDIR}/config_ad.o.d ${OBJECTDIR}/config_pins.o.d ${OBJECTDIR}/config_stepperPWM.o.d ${OBJECTDIR}/StepperInterrupt.o.d ${OBJECTDIR}/drive.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/MAIN.o ${OBJECTDIR}/config_ad.o ${OBJECTDIR}/config_pins.o ${OBJECTDIR}/config_stepperPWM.o ${OBJECTDIR}/StepperInterrupt.o ${OBJECTDIR}/drive.o ${OBJECTDIR}/feedball.o ${OBJECTDIR}/config_ONEStimer.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/MAIN.o.d ${OBJECTDIR}/config_ad.o.d ${OBJECTDIR}/config_pins.o.d ${OBJECTDIR}/config_stepperPWM.o.d ${OBJECTDIR}/StepperInterrupt.o.d ${OBJECTDIR}/drive.o.d ${OBJECTDIR}/feedball.o.d ${OBJECTDIR}/config_ONEStimer.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/MAIN.o ${OBJECTDIR}/config_ad.o ${OBJECTDIR}/config_pins.o ${OBJECTDIR}/config_stepperPWM.o ${OBJECTDIR}/StepperInterrupt.o ${OBJECTDIR}/drive.o
+OBJECTFILES=${OBJECTDIR}/MAIN.o ${OBJECTDIR}/config_ad.o ${OBJECTDIR}/config_pins.o ${OBJECTDIR}/config_stepperPWM.o ${OBJECTDIR}/StepperInterrupt.o ${OBJECTDIR}/drive.o ${OBJECTDIR}/feedball.o ${OBJECTDIR}/config_ONEStimer.o
 
 # Source Files
-SOURCEFILES=MAIN.c config_ad.c config_pins.c config_stepperPWM.c StepperInterrupt.c drive.c
+SOURCEFILES=MAIN.c config_ad.c config_pins.c config_stepperPWM.c StepperInterrupt.c drive.c feedball.c config_ONEStimer.c
 
 
 CFLAGS=
@@ -130,6 +130,20 @@ ${OBJECTDIR}/drive.o: drive.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  drive.c  -o ${OBJECTDIR}/drive.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/drive.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/drive.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/feedball.o: feedball.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/feedball.o.d 
+	@${RM} ${OBJECTDIR}/feedball.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  feedball.c  -o ${OBJECTDIR}/feedball.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/feedball.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/feedball.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/config_ONEStimer.o: config_ONEStimer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/config_ONEStimer.o.d 
+	@${RM} ${OBJECTDIR}/config_ONEStimer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  config_ONEStimer.c  -o ${OBJECTDIR}/config_ONEStimer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/config_ONEStimer.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/config_ONEStimer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/MAIN.o: MAIN.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -172,6 +186,20 @@ ${OBJECTDIR}/drive.o: drive.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/drive.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  drive.c  -o ${OBJECTDIR}/drive.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/drive.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/drive.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/feedball.o: feedball.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/feedball.o.d 
+	@${RM} ${OBJECTDIR}/feedball.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  feedball.c  -o ${OBJECTDIR}/feedball.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/feedball.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/feedball.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/config_ONEStimer.o: config_ONEStimer.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/config_ONEStimer.o.d 
+	@${RM} ${OBJECTDIR}/config_ONEStimer.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  config_ONEStimer.c  -o ${OBJECTDIR}/config_ONEStimer.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/config_ONEStimer.o.d"        -g -omf=elf -DXPRJ_default=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/config_ONEStimer.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

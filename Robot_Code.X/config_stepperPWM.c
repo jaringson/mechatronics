@@ -11,7 +11,7 @@
 void config_stepperPWM(void){
     // Output Compare Interrupt     
         _OC1IP = 4;          // Select Output Compare 1 interrupt priority pin 14
-        _OC1IE = 1;          // Enable OC1 interrupt (1)
+        _OC1IE = 0;          // Enable OC1 interrupt (1=enabled)
         _OC1IF = 0;         // Set Flag to 0
         
     // Configure PWM
