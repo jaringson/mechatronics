@@ -15,20 +15,29 @@ void StepperInterrupt(void){
     counterStepper=counterStepper+1;
     switch(direction){
         case Forward:
-            if(counterStepper>=three60){
-                direction=Right;
+            if(counterStepper>=center){
+                //direction=Right;
+                direction=Stop;
                 counterStepper=0;
+                state = Sensing;
             }
             break;
         case Right:
-            if(counterStepper>=one80){
-                direction=Forward;
+            if(counterStepper>=ten){
+                direction=Stop;
                 counterStepper=0;
+                state=Turret_Turn;
             }
             break;
         case Stop:
             break;
         case Left:
+            if(counterStepper>=ten){
+                direction=Stop;
+                counterStepper=0;
+                state=Turret_Turn;
+            }
+            break;
             break;
         case Back:
             break;

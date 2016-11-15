@@ -19,10 +19,15 @@ void config_pins(void);
 void config_stepperPWM(void);
 void drive(void);
 void feedball(void);
-
+void sense(void);
+void turret_turn(void);
+void config_servoTimer(void);
+void config_servoPWM(void);
+void config_gameTimer(void);
 
 //Interrupt Routines
 void StepperInterrupt(void);
+void gametime_interrupt(void);
 
 
 //DONT Mess with the rest of this stuff

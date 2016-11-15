@@ -22,6 +22,12 @@
       <itemPath>drive.c</itemPath>
       <itemPath>feedball.c</itemPath>
       <itemPath>config_ONEStimer.c</itemPath>
+      <itemPath>sense.c</itemPath>
+      <itemPath>turret_turn.c</itemPath>
+      <itemPath>config_servoPWM.c</itemPath>
+      <itemPath>config_servoTimer.c</itemPath>
+      <itemPath>config_gameTimer.c</itemPath>
+      <itemPath>gametime_interrupt.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

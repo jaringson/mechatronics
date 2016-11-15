@@ -25,13 +25,13 @@ void config_ad(void){
                   // ref voltage
     _BUFREGEN = 1;// AD1CON2<11> -- Result appears in buffer
                   // location corresponding to channel
-    _CSCNA = 0;   // AD1CON2<10> -- Does not scan inputs
+    _CSCNA = 1;   // AD1CON2<10> -- 0 = Does not scan inputs
                   // specified in AD1CSSx registers (instead
                   // uses channels specified by CH0SA bits in
                   // AD1CHS register) -- Selecting '0' here
                   // probably makes writing to the AD1CSSL
                   // register unnecessary.
-    _SMPI = 0;    // AD1CON2<6:2> -- Each conversion sent to 
+    _SMPI = 2;    // AD1CON2<6:2> -- Each conversion sent to 
                   // buffer
     _ALTS = 0;    // AD1CON2<0> -- Sample MUXA only
 
@@ -42,13 +42,17 @@ void config_ad(void){
     _ADCS = 0x3F; // AD1CON3<7:0> -- A/D period TAD = 64*TCY
 
     // AD1CHS register
-    _CH0NA = 0;   // AD1CHS<7:5> -- Use VDD as negative input
-    _CH0SA = 0b00011; // AD1CHS<4:0> -- Use ANx as positive input
+ //   _CH0NA = 0;   // AD1CHS<7:5> -- Use VDD as negative input
+//    _CH0SA = 0b01011; // AD1CHS<4:0> -- Use ANx as positive input
 
     // AD1CSSL register
-    AD1CSSL = 0;  // AD1CSSL<15:0> -- Skip all channels on 
+    _CSS9 = 1;    
+    _CSS10 = 1;
+    _CSS11 = 1;
+//    AD1CSSL = 1;  // AD1CSSL<15:0> -- 0 = Skip all channels on 
                   // input scan -- see the CSCNA bits in
-                  // AD1CON2
+                  // AD1CON2. This selects pins 16,17,18 to read from
+                  
 
     _ADON = 1;    // AD1CON1<15> -- Turn on A/D
     return;
