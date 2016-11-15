@@ -38,8 +38,25 @@ void StepperInterrupt(void){
                 state=Turret_Turn;
             }
             break;
+        case RightC:
+            if(center_goal==ACTIVE){
+                tur_dir=Turret_Center;
+                counterStepper=0;
+            }
+            if(tur_dir==Turret_Center){
+                if(counterStepper>=one80){
+                direction=Back;
+                counterStepper=0;
+                state=Drive;
+            }
+            }
             break;
         case Back:
+            if(LeftBump==on&&RightBump==on){
+                direction=Forward;
+                counterStepper=0;
+                state=Drive;
+            }
             break;
     }
    

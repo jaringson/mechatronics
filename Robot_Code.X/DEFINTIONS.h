@@ -24,6 +24,9 @@
 //PWM used instead of stepper #define Turret_Step _RB1
 #define BallFeed _LATA2
 #define PitchWheel _LATA4
+#define LeftBump 1  // set to pins 
+#define RightBump 1 // set to pins
+
 
 #define ONES_Timer TMR1
 #define one_second 15600
@@ -44,19 +47,22 @@
 #define center_goal ADC1BUF10
 #define right_goal ADC1BUF9
 
+#define ACTIVE 1242
 //State Definitions
-enum states {Stationary, Sensing, Shooting, Turret_Turn, Drive, Loading, Turning};
+enum states {Stationary, Sensing, Shooting, Turret_Turn, Drive, Loading, Turning, Turning_Right};
 extern enum states state;
 
 // DEFINE (Do not initialize) global variables
 extern int counterStepper;
 extern int gametime;
-enum dir {Forward, Back, Left, Right, Stop};
+enum dir {Forward, Back, Left, Right, Stop, RightC};
 extern enum dir direction;
 
 enum turret_dir {Turret_Center, Turret_Left, Turret_Right};
 extern enum turret_dir tur_dir;
+extern enum turret_dir tur_prev;
 
+extern int Turret_Previous;
 // DONT Mess with the rest of this stuff
 #ifdef	__cplusplus
 extern "C" {
