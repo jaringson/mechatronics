@@ -8,26 +8,18 @@
 #include "xc.h"
 #include "DEFINTIONS.h"
 
-void sense(void) {
+void sense(void) {  // add 15 second check??
     if(left_goal > ACTIVE) {
-        state = Turret_Turn;
         tur_dir = Turret_Left;
-        direction=Left;
+        state = Turret_Turn;
     }
     else if(right_goal > ACTIVE){
-        state = Turret_Turn;
         tur_dir = Turret_Right;
-        direction=Right;
+        state = Turret_Turn;
     }
     else{
-        state = Turret_Turn;
         tur_dir = Turret_Center;
-        if(tur_prev==Turret_Right){
-            direction=Left;
-        }
-        else{
-            direction=Right;
-        }
+        state = Turret_Turn;
     }  
     return;
 }

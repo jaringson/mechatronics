@@ -12,7 +12,7 @@
 void feedball(void) {
    ONES_Timer=0;
    BallFeed=release;
-   while(ONES_Timer<=eigth_second)
+   while(ONES_Timer<=half_second)
    {
    }
    ONES_Timer=0;

@@ -84,28 +84,28 @@ Program Memory  [Origin = 0x200, Length = 0x2a00]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x30c           0x492  (1170)
-.text                        0x50c               0x2e6           0x459  (1113)
-.dinit                       0x7f2                0x12            0x1b  (27)
-.shared.dinit                0x804                 0x2             0x3  (3)
+.text                        0x200               0x34e           0x4f5  (1269)
+.text                        0x54e               0x358           0x504  (1284)
+.dinit                       0x8a6                0x12            0x1b  (27)
+.shared.dinit                0x8b8                 0x2             0x3  (3)
 
-                 Total program memory used (bytes):          0x909  (2313) 14%
+                 Total program memory used (bytes):          0xa17  (2583) 16%
 
 
 Ivt Memory  [Origin = 0x4, Length = 0xfc]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.ivt._OC1Interrupt            0x18                 0x2             0x3  (3)
 .ivt._T3Interrupt             0x24                 0x2             0x3  (3)
+.ivt._OC3Interrupt            0x46                 0x2             0x3  (3)
 
 
 Data Memory  [Origin = 0x800, Length = 0x800]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0             0x8  (8)
-.ndata                       0x808                   0             0x6  (6)
+.nbss                        0x800                   0             0xa  (10)
+.ndata                       0x80a                   0             0x4  (4)
 
                  Total data memory used (bytes):            0xe  (14) <1%
 
@@ -126,19 +126,19 @@ External Symbols in Data Memory (by address):
                     0x0802                  _state
                     0x0804                  _balls
                     0x0806                  _gametime
-                    0x0808                  _direction
-                    0x080a                  _tur_dir
-                    0x080c                  _tur_prev
+                    0x0808                  _tur_prev
+                    0x080a                  _direction
+                    0x080c                  _tur_dir
 
 External Symbols in Data Memory (by name):
 
                     0x0804                  _balls
                     0x0800                  _counterStepper
-                    0x0808                  _direction
+                    0x080a                  _direction
                     0x0806                  _gametime
                     0x0802                  _state
-                    0x080a                  _tur_dir
-                    0x080c                  _tur_prev
+                    0x080c                  _tur_dir
+                    0x0808                  _tur_prev
 
 External Symbols in Program Memory (by address):
 
@@ -146,65 +146,65 @@ External Symbols in Program Memory (by address):
                   0x00022c                  __psv_init
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
-                  0x0002a8                  __OC1Interrupt
+                  0x0002a8                  __OC3Interrupt
                   0x0002c4                  __T3Interrupt
                   0x0002e0                  _main
-                  0x0003c4                  __DefaultInterrupt
-                  0x0003c8                  ___gesf2
-                  0x0003c8                  ___gtsf2
-                  0x0003cc                  ___floatsisf
-                  0x0003d2                  __fcompare
-                  0x000408                  ___floatdisf
-                  0x000428                  ___floatundisf
-                  0x000486                  __fpack
-                  0x0004d2                  __funpack2
-                  0x0004e2                  __funpack
-                  0x00050c                  _StepperInterrupt
-                  0x0005d4                  _drive
-                  0x000632                  _config_ad
-                  0x000688                  _sense
-                  0x0006d0                  _config_stepperPWM
-                  0x000706                  _turret_turn
-                  0x00072e                  _config_servoPWM
-                  0x000756                  _config_gameTimer
-                  0x00077a                  _feedball
-                  0x00079c                  _gametime_interrupt
-                  0x0007b4                  _config_ONEStimer
-                  0x0007ca                  _config_servoTimer
-                  0x0007e0                  _config_pins
+                  0x000406                  __DefaultInterrupt
+                  0x00040a                  ___gesf2
+                  0x00040a                  ___gtsf2
+                  0x00040e                  ___floatsisf
+                  0x000414                  __fcompare
+                  0x00044a                  ___floatdisf
+                  0x00046a                  ___floatundisf
+                  0x0004c8                  __fpack
+                  0x000514                  __funpack2
+                  0x000524                  __funpack
+                  0x00054e                  _StepperInterrupt
+                  0x000694                  _drive
+                  0x0006fe                  _config_ad
+                  0x000754                  _config_stepperPWM
+                  0x00078a                  _sense
+                  0x0007ba                  _config_servoPWM
+                  0x0007e4                  _turret_turn
+                  0x000808                  _config_gameTimer
+                  0x00082c                  _feedball
+                  0x00084e                  _gametime_interrupt
+                  0x000866                  _config_ONEStimer
+                  0x00087c                  _config_servoTimer
+                  0x000892                  _config_pins
 
 External Symbols in Program Memory (by name):
 
-                  0x00050c                  _StepperInterrupt
-                  0x0003c4                  __DefaultInterrupt
-                  0x0002a8                  __OC1Interrupt
+                  0x00054e                  _StepperInterrupt
+                  0x000406                  __DefaultInterrupt
+                  0x0002a8                  __OC3Interrupt
                   0x0002c4                  __T3Interrupt
-                  0x000408                  ___floatdisf
-                  0x0003cc                  ___floatsisf
-                  0x000428                  ___floatundisf
-                  0x0003c8                  ___gesf2
-                  0x0003c8                  ___gtsf2
+                  0x00044a                  ___floatdisf
+                  0x00040e                  ___floatsisf
+                  0x00046a                  ___floatundisf
+                  0x00040a                  ___gesf2
+                  0x00040a                  ___gtsf2
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
-                  0x0003d2                  __fcompare
-                  0x000486                  __fpack
-                  0x0004e2                  __funpack
-                  0x0004d2                  __funpack2
+                  0x000414                  __fcompare
+                  0x0004c8                  __fpack
+                  0x000524                  __funpack
+                  0x000514                  __funpack2
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x0007b4                  _config_ONEStimer
-                  0x000632                  _config_ad
-                  0x000756                  _config_gameTimer
-                  0x0007e0                  _config_pins
-                  0x00072e                  _config_servoPWM
-                  0x0007ca                  _config_servoTimer
-                  0x0006d0                  _config_stepperPWM
-                  0x0005d4                  _drive
-                  0x00077a                  _feedball
-                  0x00079c                  _gametime_interrupt
+                  0x000866                  _config_ONEStimer
+                  0x0006fe                  _config_ad
+                  0x000808                  _config_gameTimer
+                  0x000892                  _config_pins
+                  0x0007ba                  _config_servoPWM
+                  0x00087c                  _config_servoTimer
+                  0x000754                  _config_stepperPWM
+                  0x000694                  _drive
+                  0x00082c                  _feedball
+                  0x00084e                  _gametime_interrupt
                   0x0002e0                  _main
-                  0x000688                  _sense
-                  0x000706                  _turret_turn
+                  0x00078a                  _sense
+                  0x0007e4                  _turret_turn
 
 Memory Configuration
 
@@ -267,7 +267,7 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x30c
+.text             0x000200        0x34e
  *(.init)
  .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
@@ -279,38 +279,38 @@ LOAD c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libfx-elf.a
  *(.user_init)
  *(.handle)
  *(.isr*)
- .isr.text        0x0002a8        0x11c build/default/production/MAIN.o
-                  0x0002a8                  __OC1Interrupt
+ .isr.text        0x0002a8        0x15e build/default/production/MAIN.o
+                  0x0002a8                  __OC3Interrupt
                   0x0002c4                  __T3Interrupt
                   0x0002e0                  _main
- .isr             0x0003c4          0x4 default_isr
-                  0x0003c4                  __DefaultInterrupt
+ .isr             0x000406          0x4 default_isr
+                  0x000406                  __DefaultInterrupt
  *(.libc)
  *(.libm)
  *(.libdsp)
  *(.lib*)
- .libm.gtsf2      0x0003c8          0x4 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fgtge.eo)
-                  0x0003c8                  ___gesf2
-                  0x0003c8                  ___gtsf2
+ .libm.gtsf2      0x00040a          0x4 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fgtge.eo)
+                  0x00040a                  ___gesf2
+                  0x00040a                  ___gtsf2
  .libm.floatsisf
-                  0x0003cc          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
-                  0x0003cc                  ___floatsisf
+                  0x00040e          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
+                  0x00040e                  ___floatsisf
  .libm.fcompare
-                  0x0003d2         0x36 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fcompare.eo)
-                  0x0003d2                  __fcompare
+                  0x000414         0x36 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fcompare.eo)
+                  0x000414                  __fcompare
  .libm.floatdisf
-                  0x000408         0x20 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
-                  0x000408                  ___floatdisf
+                  0x00044a         0x20 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
+                  0x00044a                  ___floatdisf
  .libm.floatundisf
-                  0x000428         0x5e c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
-                  0x000428                  ___floatundisf
- .libm.fpack      0x000486         0x4c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fpack.eo)
-                  0x000486                  __fpack
+                  0x00046a         0x5e c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x00046a                  ___floatundisf
+ .libm.fpack      0x0004c8         0x4c c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x0004c8                  __fpack
  .libm.funpack2
-                  0x0004d2         0x10 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack2.eo)
-                  0x0004d2                  __funpack2
- .libm.funpack    0x0004e2         0x2a c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack.eo)
-                  0x0004e2                  __funpack
+                  0x000514         0x10 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x000514                  __funpack2
+ .libm.funpack    0x000524         0x2a c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x000524                  __funpack
 
 usercode
  *(usercode)
@@ -342,57 +342,57 @@ __FDS
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3531
+.debug_info       0x000000       0x38e0
  *(.debug_info)
- .debug_info      0x000000        0x397 build/default/production/MAIN.o
- .debug_info      0x000397        0x8e4 build/default/production/config_ad.o
- .debug_info      0x000c7b        0x14f build/default/production/config_pins.o
- .debug_info      0x000dca        0x97e build/default/production/config_stepperPWM.o
- .debug_info      0x001748        0x3c0 build/default/production/StepperInterrupt.o
- .debug_info      0x001b08        0x264 build/default/production/drive.o
- .debug_info      0x001d6c        0x1ab build/default/production/feedball.o
- .debug_info      0x001f17        0x2a8 build/default/production/config_ONEStimer.o
- .debug_info      0x0021bf        0x25d build/default/production/sense.o
- .debug_info      0x00241c        0x1de build/default/production/turret_turn.o
- .debug_info      0x0025fa        0x4f2 build/default/production/config_servoPWM.o
- .debug_info      0x002aec        0x213 build/default/production/config_servoTimer.o
- .debug_info      0x002cff        0x549 build/default/production/config_gameTimer.o
- .debug_info      0x003248        0x2e9 build/default/production/gametime_interrupt.o
+ .debug_info      0x000000        0x4bc build/default/production/MAIN.o
+ .debug_info      0x0004bc        0x8e4 build/default/production/config_ad.o
+ .debug_info      0x000da0        0x217 build/default/production/config_pins.o
+ .debug_info      0x000fb7        0x860 build/default/production/config_stepperPWM.o
+ .debug_info      0x001817        0x659 build/default/production/StepperInterrupt.o
+ .debug_info      0x001e70        0x344 build/default/production/drive.o
+ .debug_info      0x0021b4        0x213 build/default/production/feedball.o
+ .debug_info      0x0023c7        0x2a8 build/default/production/config_ONEStimer.o
+ .debug_info      0x00266f        0x1e9 build/default/production/sense.o
+ .debug_info      0x002858        0x154 build/default/production/turret_turn.o
+ .debug_info      0x0029ac        0x4f2 build/default/production/config_servoPWM.o
+ .debug_info      0x002e9e        0x213 build/default/production/config_servoTimer.o
+ .debug_info      0x0030b1        0x549 build/default/production/config_gameTimer.o
+ .debug_info      0x0035fa        0x2e6 build/default/production/gametime_interrupt.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x929
+.debug_abbrev     0x000000        0x96b
  *(.debug_abbrev)
  .debug_abbrev    0x000000         0xf0 build/default/production/MAIN.o
  .debug_abbrev    0x0000f0         0xa7 build/default/production/config_ad.o
- .debug_abbrev    0x000197         0x4c build/default/production/config_pins.o
- .debug_abbrev    0x0001e3         0xb8 build/default/production/config_stepperPWM.o
- .debug_abbrev    0x00029b         0xb7 build/default/production/StepperInterrupt.o
- .debug_abbrev    0x000352         0xb7 build/default/production/drive.o
- .debug_abbrev    0x000409         0x8e build/default/production/feedball.o
- .debug_abbrev    0x000497         0xb8 build/default/production/config_ONEStimer.o
- .debug_abbrev    0x00054f         0x86 build/default/production/sense.o
- .debug_abbrev    0x0005d5         0x75 build/default/production/turret_turn.o
- .debug_abbrev    0x00064a         0xb8 build/default/production/config_servoPWM.o
- .debug_abbrev    0x000702         0xb8 build/default/production/config_servoTimer.o
- .debug_abbrev    0x0007ba         0xb8 build/default/production/config_gameTimer.o
- .debug_abbrev    0x000872         0xb7 build/default/production/gametime_interrupt.o
+ .debug_abbrev    0x000197         0x8e build/default/production/config_pins.o
+ .debug_abbrev    0x000225         0xb8 build/default/production/config_stepperPWM.o
+ .debug_abbrev    0x0002dd         0xc8 build/default/production/StepperInterrupt.o
+ .debug_abbrev    0x0003a5         0xb7 build/default/production/drive.o
+ .debug_abbrev    0x00045c         0x8e build/default/production/feedball.o
+ .debug_abbrev    0x0004ea         0xb8 build/default/production/config_ONEStimer.o
+ .debug_abbrev    0x0005a2         0x75 build/default/production/sense.o
+ .debug_abbrev    0x000617         0x75 build/default/production/turret_turn.o
+ .debug_abbrev    0x00068c         0xb8 build/default/production/config_servoPWM.o
+ .debug_abbrev    0x000744         0xb8 build/default/production/config_servoTimer.o
+ .debug_abbrev    0x0007fc         0xb8 build/default/production/config_gameTimer.o
+ .debug_abbrev    0x0008b4         0xb7 build/default/production/gametime_interrupt.o
 
-.debug_line       0x000000        0x98e
+.debug_line       0x000000        0x9c1
  *(.debug_line)
- .debug_line      0x000000         0xe1 build/default/production/MAIN.o
- .debug_line      0x0000e1         0xa8 build/default/production/config_ad.o
- .debug_line      0x000189         0x9b build/default/production/config_pins.o
- .debug_line      0x000224         0xa6 build/default/production/config_stepperPWM.o
- .debug_line      0x0002ca         0xdd build/default/production/StepperInterrupt.o
- .debug_line      0x0003a7         0xb9 build/default/production/drive.o
- .debug_line      0x000460         0x9a build/default/production/feedball.o
- .debug_line      0x0004fa         0xa0 build/default/production/config_ONEStimer.o
- .debug_line      0x00059a         0xae build/default/production/sense.o
- .debug_line      0x000648         0xae build/default/production/turret_turn.o
- .debug_line      0x0006f6         0xa1 build/default/production/config_servoPWM.o
- .debug_line      0x000797         0xa2 build/default/production/config_servoTimer.o
- .debug_line      0x000839         0xa3 build/default/production/config_gameTimer.o
- .debug_line      0x0008dc         0xb2 build/default/production/gametime_interrupt.o
+ .debug_line      0x000000         0xf8 build/default/production/MAIN.o
+ .debug_line      0x0000f8         0xa8 build/default/production/config_ad.o
+ .debug_line      0x0001a0         0x9c build/default/production/config_pins.o
+ .debug_line      0x00023c         0xa6 build/default/production/config_stepperPWM.o
+ .debug_line      0x0002e2         0xfb build/default/production/StepperInterrupt.o
+ .debug_line      0x0003dd         0xbc build/default/production/drive.o
+ .debug_line      0x000499         0x9a build/default/production/feedball.o
+ .debug_line      0x000533         0xa0 build/default/production/config_ONEStimer.o
+ .debug_line      0x0005d3         0xa9 build/default/production/sense.o
+ .debug_line      0x00067c         0xad build/default/production/turret_turn.o
+ .debug_line      0x000729         0xa1 build/default/production/config_servoPWM.o
+ .debug_line      0x0007ca         0xa2 build/default/production/config_servoTimer.o
+ .debug_line      0x00086c         0xa3 build/default/production/config_gameTimer.o
+ .debug_line      0x00090f         0xb2 build/default/production/gametime_interrupt.o
 
 .debug_frame      0x000000        0x326
  *(.debug_frame)
@@ -411,20 +411,21 @@ __FDS
  .debug_frame     0x0002c6         0x30 build/default/production/config_gameTimer.o
  .debug_frame     0x0002f6         0x30 build/default/production/gametime_interrupt.o
 
-.debug_str        0x000000        0x15f
+.debug_str        0x000000        0x18e
  *(.debug_str)
- .debug_str       0x000000         0x34 build/default/production/MAIN.o
- .debug_str       0x000034         0x30 build/default/production/config_ad.o
- .debug_str       0x000064         0x33 build/default/production/config_stepperPWM.o
- .debug_str       0x000097         0x2c build/default/production/StepperInterrupt.o
- .debug_str       0x0000c3         0x13 build/default/production/drive.o
- .debug_str       0x0000d6          0x9 build/default/production/feedball.o
- .debug_str       0x0000df          0xa build/default/production/config_ONEStimer.o
- .debug_str       0x0000e9         0x26 build/default/production/sense.o
- .debug_str       0x00010f         0x18 build/default/production/config_servoPWM.o
- .debug_str       0x000127          0xa build/default/production/config_servoTimer.o
- .debug_str       0x000131         0x1c build/default/production/config_gameTimer.o
- .debug_str       0x00014d         0x12 build/default/production/gametime_interrupt.o
+ .debug_str       0x000000         0x3d build/default/production/MAIN.o
+ .debug_str       0x00003d         0x30 build/default/production/config_ad.o
+ .debug_str       0x00006d          0xa build/default/production/config_pins.o
+ .debug_str       0x000077         0x33 build/default/production/config_stepperPWM.o
+ .debug_str       0x0000aa         0x52 build/default/production/StepperInterrupt.o
+ .debug_str       0x0000fc         0x1c build/default/production/drive.o
+ .debug_str       0x000118          0x9 build/default/production/feedball.o
+ .debug_str       0x000121          0xa build/default/production/config_ONEStimer.o
+ .debug_str       0x00012b         0x13 build/default/production/sense.o
+ .debug_str       0x00013e         0x18 build/default/production/config_servoPWM.o
+ .debug_str       0x000156          0xa build/default/production/config_servoTimer.o
+ .debug_str       0x000160         0x1c build/default/production/config_gameTimer.o
+ .debug_str       0x00017c         0x12 build/default/production/gametime_interrupt.o
 
 .debug_loc
  *(.debug_loc)
@@ -1117,99 +1118,99 @@ LOAD data_init
 LOAD shared_data_init
 
 .debug_pubtypes
-                  0x000150        0x426
+                  0x000150        0x4c7
  .debug_pubtypes
-                  0x000150         0x51 build/default/production/MAIN.o
+                  0x000150         0x6e build/default/production/MAIN.o
  .debug_pubtypes
-                  0x0001a1         0x9e build/default/production/config_ad.o
+                  0x0001be         0x9e build/default/production/config_ad.o
  .debug_pubtypes
-                  0x00023f         0x12 build/default/production/config_pins.o
+                  0x00025c         0x31 build/default/production/config_pins.o
  .debug_pubtypes
-                  0x000251         0xaf build/default/production/config_stepperPWM.o
+                  0x00028d         0xaf build/default/production/config_stepperPWM.o
  .debug_pubtypes
-                  0x000300         0x51 build/default/production/StepperInterrupt.o
+                  0x00033c         0xac build/default/production/StepperInterrupt.o
  .debug_pubtypes
-                  0x000351         0x37 build/default/production/drive.o
+                  0x0003e8         0x54 build/default/production/drive.o
  .debug_pubtypes
-                  0x000388         0x2f build/default/production/feedball.o
+                  0x00043c         0x2f build/default/production/feedball.o
  .debug_pubtypes
-                  0x0003b7         0x31 build/default/production/config_ONEStimer.o
+                  0x00046b         0x31 build/default/production/config_ONEStimer.o
  .debug_pubtypes
-                  0x0003e8         0x34 build/default/production/sense.o
+                  0x00049c         0x2c build/default/production/sense.o
  .debug_pubtypes
-                  0x00041c         0x2c build/default/production/turret_turn.o
+                  0x0004c8         0x21 build/default/production/turret_turn.o
  .debug_pubtypes
-                  0x000448         0x58 build/default/production/config_servoPWM.o
+                  0x0004e9         0x58 build/default/production/config_servoPWM.o
  .debug_pubtypes
-                  0x0004a0         0x31 build/default/production/config_servoTimer.o
+                  0x000541         0x31 build/default/production/config_servoTimer.o
  .debug_pubtypes
-                  0x0004d1         0x6b build/default/production/config_gameTimer.o
+                  0x000572         0x6b build/default/production/config_gameTimer.o
  .debug_pubtypes
-                  0x00053c         0x3a build/default/production/gametime_interrupt.o
+                  0x0005dd         0x3a build/default/production/gametime_interrupt.o
 
 __c30_signature
-                  0x000576         0x90
+                  0x000617         0x90
  __c30_signature
-                  0x000576          0x6 build/default/production/MAIN.o
+                  0x000617          0x6 build/default/production/MAIN.o
  __c30_signature
-                  0x00057c          0x6 build/default/production/config_ad.o
+                  0x00061d          0x6 build/default/production/config_ad.o
  __c30_signature
-                  0x000582          0x6 build/default/production/config_pins.o
+                  0x000623          0x6 build/default/production/config_pins.o
  __c30_signature
-                  0x000588          0x6 build/default/production/config_stepperPWM.o
+                  0x000629          0x6 build/default/production/config_stepperPWM.o
  __c30_signature
-                  0x00058e          0x6 build/default/production/StepperInterrupt.o
+                  0x00062f          0x6 build/default/production/StepperInterrupt.o
  __c30_signature
-                  0x000594          0x6 build/default/production/drive.o
+                  0x000635          0x6 build/default/production/drive.o
  __c30_signature
-                  0x00059a          0x6 build/default/production/feedball.o
+                  0x00063b          0x6 build/default/production/feedball.o
  __c30_signature
-                  0x0005a0          0x6 build/default/production/config_ONEStimer.o
+                  0x000641          0x6 build/default/production/config_ONEStimer.o
  __c30_signature
-                  0x0005a6          0x6 build/default/production/sense.o
+                  0x000647          0x6 build/default/production/sense.o
  __c30_signature
-                  0x0005ac          0x6 build/default/production/turret_turn.o
+                  0x00064d          0x6 build/default/production/turret_turn.o
  __c30_signature
-                  0x0005b2          0x6 build/default/production/config_servoPWM.o
+                  0x000653          0x6 build/default/production/config_servoPWM.o
  __c30_signature
-                  0x0005b8          0x6 build/default/production/config_servoTimer.o
+                  0x000659          0x6 build/default/production/config_servoTimer.o
  __c30_signature
-                  0x0005be          0x6 build/default/production/config_gameTimer.o
+                  0x00065f          0x6 build/default/production/config_gameTimer.o
  __c30_signature
-                  0x0005c4          0x6 build/default/production/gametime_interrupt.o
+                  0x000665          0x6 build/default/production/gametime_interrupt.o
  __c30_signature
-                  0x0005ca          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
+                  0x00066b          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0005d0          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
+                  0x000671          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\liblega-pic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0005d6          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fgtge.eo)
+                  0x000677          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fgtge.eo)
  __c30_signature
-                  0x0005dc          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
+                  0x00067d          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatsisf.eo)
  __c30_signature
-                  0x0005e2          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fcompare.eo)
+                  0x000683          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fcompare.eo)
  __c30_signature
-                  0x0005e8          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
+                  0x000689          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatdisf.eo)
  __c30_signature
-                  0x0005ee          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
+                  0x00068f          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(floatundisf.eo)
  __c30_signature
-                  0x0005f4          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fpack.eo)
+                  0x000695          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(fpack.eo)
  __c30_signature
-                  0x0005fa          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack2.eo)
+                  0x00069b          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack2.eo)
  __c30_signature
-                  0x000600          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack.eo)
+                  0x0006a1          0x6 c:/program files (x86)/microchip/xc16/v1.26/bin/bin/../../lib\libm-elf.a(funpack.eo)
 
-.nbss               0x0800          0x8
- .nbss              0x0800          0x8 build/default/production/MAIN.o
+.nbss               0x0800          0xa
+ .nbss              0x0800          0xa build/default/production/MAIN.o
                     0x0800                  _counterStepper
                     0x0802                  _state
                     0x0804                  _balls
                     0x0806                  _gametime
+                    0x0808                  _tur_prev
 
-.ndata              0x0808          0x6
- .ndata             0x0808          0x6 build/default/production/MAIN.o
-                    0x0808                  _direction
-                    0x080a                  _tur_dir
-                    0x080c                  _tur_prev
+.ndata              0x080a          0x4
+ .ndata             0x080a          0x4 build/default/production/MAIN.o
+                    0x080a                  _direction
+                    0x080c                  _tur_dir
 
 .config_ICS       0xf8000e          0x2
  .config_ICS      0xf8000e          0x2 build/default/production/MAIN.o
@@ -1220,46 +1221,46 @@ __c30_signature
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/MAIN.o
 
-.ivt._OC1Interrupt
-                  0x000018          0x2
- .ivt._OC1Interrupt
-                  0x000018          0x2 build/default/production/MAIN.o
+.ivt._OC3Interrupt
+                  0x000046          0x2
+ .ivt._OC3Interrupt
+                  0x000046          0x2 build/default/production/MAIN.o
 
 .ivt._T3Interrupt
                   0x000024          0x2
  .ivt._T3Interrupt
                   0x000024          0x2 build/default/production/MAIN.o
 
-.text             0x00050c        0x2e6
- .text            0x00050c         0xc8 build/default/production/StepperInterrupt.o
-                  0x00050c                  _StepperInterrupt
- .text            0x0005d4         0x5e build/default/production/drive.o
-                  0x0005d4                  _drive
- .text            0x000632         0x56 build/default/production/config_ad.o
-                  0x000632                  _config_ad
- .text            0x000688         0x48 build/default/production/sense.o
-                  0x000688                  _sense
- .text            0x0006d0         0x36 build/default/production/config_stepperPWM.o
-                  0x0006d0                  _config_stepperPWM
- .text            0x000706         0x28 build/default/production/turret_turn.o
-                  0x000706                  _turret_turn
- .text            0x00072e         0x28 build/default/production/config_servoPWM.o
-                  0x00072e                  _config_servoPWM
- .text            0x000756         0x24 build/default/production/config_gameTimer.o
-                  0x000756                  _config_gameTimer
- .text            0x00077a         0x22 build/default/production/feedball.o
-                  0x00077a                  _feedball
- .text            0x00079c         0x18 build/default/production/gametime_interrupt.o
-                  0x00079c                  _gametime_interrupt
- .text            0x0007b4         0x16 build/default/production/config_ONEStimer.o
-                  0x0007b4                  _config_ONEStimer
- .text            0x0007ca         0x16 build/default/production/config_servoTimer.o
-                  0x0007ca                  _config_servoTimer
- .text            0x0007e0         0x12 build/default/production/config_pins.o
-                  0x0007e0                  _config_pins
+.text             0x00054e        0x358
+ .text            0x00054e        0x146 build/default/production/StepperInterrupt.o
+                  0x00054e                  _StepperInterrupt
+ .text            0x000694         0x6a build/default/production/drive.o
+                  0x000694                  _drive
+ .text            0x0006fe         0x56 build/default/production/config_ad.o
+                  0x0006fe                  _config_ad
+ .text            0x000754         0x36 build/default/production/config_stepperPWM.o
+                  0x000754                  _config_stepperPWM
+ .text            0x00078a         0x30 build/default/production/sense.o
+                  0x00078a                  _sense
+ .text            0x0007ba         0x2a build/default/production/config_servoPWM.o
+                  0x0007ba                  _config_servoPWM
+ .text            0x0007e4         0x24 build/default/production/turret_turn.o
+                  0x0007e4                  _turret_turn
+ .text            0x000808         0x24 build/default/production/config_gameTimer.o
+                  0x000808                  _config_gameTimer
+ .text            0x00082c         0x22 build/default/production/feedball.o
+                  0x00082c                  _feedball
+ .text            0x00084e         0x18 build/default/production/gametime_interrupt.o
+                  0x00084e                  _gametime_interrupt
+ .text            0x000866         0x16 build/default/production/config_ONEStimer.o
+                  0x000866                  _config_ONEStimer
+ .text            0x00087c         0x16 build/default/production/config_servoTimer.o
+                  0x00087c                  _config_servoTimer
+ .text            0x000892         0x14 build/default/production/config_pins.o
+                  0x000892                  _config_pins
 
-.dinit            0x0007f2         0x12
- .dinit           0x0007f2         0x12 data_init
+.dinit            0x0008a6         0x12
+ .dinit           0x0008a6         0x12 data_init
 
-.shared.dinit     0x000804          0x2
- .shared.dinit    0x000804          0x2 shared_data_init
+.shared.dinit     0x0008b8          0x2
+ .shared.dinit    0x0008b8          0x2 shared_data_init

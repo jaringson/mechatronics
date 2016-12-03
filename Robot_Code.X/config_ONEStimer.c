@@ -12,9 +12,9 @@
 // One second timer, increment up to 120s
 
 void config_ONEStimer(void) {
-    _TON=1;
-    _TCS=0;
-    _TCKPS=0b11; //256 Prescaler
+    T1CONbits.TON=1;
+    T1CONbits.TCS=0;
+    T1CONbits.TCKPS=0b11; //256 Prescaler
     PR1=15625; // Timer set to 1 second
     return;
 }

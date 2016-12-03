@@ -14,7 +14,7 @@ void config_gameTimer(void) {
     T3CONbits.TON=1;
     T3CONbits.TCS = 0;
     T3CONbits.TCKPS = 0b10; //1:64 prescale
-    PR3 = 15625;
+    PR3 = 62500; //15625
     TMR3 = 0;
  
     _T3IE = 1;

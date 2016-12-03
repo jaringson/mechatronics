@@ -11,13 +11,12 @@
 
 void turret_turn(){
     if(tur_dir == Turret_Left){
-        OC3R = 150; //found 150
+        OC2R = 150; //found 150
     }
     if(tur_dir == Turret_Right){
-        OC3R = 35; //found 35
+        OC2R = 35; //found 35
     }
     if(tur_dir == Turret_Center){
-        OC3R = 185/2; //found 185/2
+        OC2R = 185/2; //found 185/2
     }
-    state=Sensing;
 }

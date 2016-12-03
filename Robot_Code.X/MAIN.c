@@ -22,10 +22,10 @@ extern enum states state = Stationary;
 extern enum turret_dir tur_dir = Turret_Left;
 int balls;
 extern int gametime = 0;
-extern enum turret_dir tur_prev= Turret_Left;
+extern enum turret_dir tur_prev= Turret_Center;
 
 //Interrupt service routines
-void __attribute__((interrupt, no_auto_psv)) _OC1Interrupt(void){
+void __attribute__((interrupt, no_auto_psv)) _OC3Interrupt(void){
     StepperInterrupt();
 }
 
@@ -46,12 +46,11 @@ int main(void) {
     config_gameTimer();  // Global Game Timer
     
     // Initial Conditions
-    direction=Stop;
-    tur_dir = Turret_Left;
+    direction=RightC;
     gametime = 0;
     balls=0;
-    state = Turning_Right;
-    
+    //state = Test;
+    state=Turning_Right;
     while(1){
         switch(state)
         {
@@ -59,6 +58,8 @@ int main(void) {
                 direction=Stop;
                 drive();
                 PitchWheel=off;
+                tur_dir=Turret_Center;
+                turret_turn();
                 break;
                 
             case Turning_Right:  // Sensing for garage off of front IR sensor.  When found, turn 180 Degrees more and enter driving back slowly
@@ -86,39 +87,87 @@ int main(void) {
                 }
                 if(balls>=6){
                     PitchWheel=off;
-                    state=Drive;
-                    direction=Back;
+//                    balls=0;
+                    
+                    if(tur_dir==Turret_Center){
+                        balls=0;
+                        state=Drive;
+                        direction=Back;
+                    }
+                    else{
+                        state=Turret_Turn;
+                        tur_dir = Turret_Center;
+                    }
+                    
+//                    if(tur_prev==Turret_Left){
+//                        direction=Right;
+//                        tur_prev= Turret_Center;
+//                        drive();
+//                    }
+//                    if(tur_prev==Turret_Right){
+//                        direction=Left;
+//                        tur_prev= Turret_Center;
+//                        drive();
+//                    }
+//                    if(tur_prev==Turret_Center){
+//                        state=Drive;
+//                        direction=Back;
+//                    }
                 }
                 break;
                 
             case Turret_Turn:  // Rotates the turret towards the active goal (both driving and servo)
                 if(tur_prev==tur_dir){
+                    direction=Stop;
+                    drive(); //To Stop the motors
                     state=Shooting;
                 }
                 else{
+                    
+                    if(tur_prev==Turret_Right) {
+                        if(tur_dir==Turret_Left){
+                            direction=Left;
+                            turret_turn();
+                            drive();
+                        }
+                        if(tur_dir==Turret_Center){
+                            direction=Left; 
+                            turret_turn();
+                            drive();
+                        }
+                    }
+                    if(tur_prev==Turret_Left){
+                        if(tur_dir==Turret_Right){
+                            direction=Right;
+                            turret_turn();
+                            drive();
+                        }
+                        if(tur_dir==Turret_Center){
+                            direction=Right;
+                            turret_turn();
+                            drive();                            
+                        }
+                    }
                     if(tur_prev==Turret_Center){
-                    drive();    
-                    turret_turn();
-                    state=Shooting;
-                    tur_prev=tur_dir;
+                        if(tur_dir==Turret_Left){
+                            direction=Left;
+                            turret_turn();
+                            drive();
+                        }
+                        if(tur_dir==Turret_Right){
+                            direction=Right;
+                            turret_turn();
+                            drive();
+                        }
                     }
-                    if((tur_prev==Turret_Left&&tur_dir==Turret_Right)||(tur_prev==Turret_Right&&tur_dir==Turret_Left)){
-                    drive();
-                    turret_turn();
-                    drive();
-                    state=Shooting;
-                    tur_prev=tur_dir;
-                    }
-                    else{
-                        drive();
-                        turret_turn();
-                        state=Shooting;
-                        tur_prev=tur_dir;
-                    }
+                    
+                    
+                   
                 }
                 break;
                      
-            case Loading:  // Not needed?
+            case Test:  // Not needed?
+                BallFeed=release;
                 break;
                 
             case Turning: //Not Needed?

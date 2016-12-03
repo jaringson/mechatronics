@@ -12,30 +12,33 @@
 void drive(void) {
     switch(direction){
         case Forward:
-            OC1R=10000/2;  // slow to catch balls
+            OC3R=10000/2;
             Stepper_DirectionL=ccw;
             Stepper_DirectionR=cw;
             break;
         case Back:
-            OC1R=10000/2;  // Slow to catch balls
+            OC3R=10000/2;  // Slow to catch balls?
             Stepper_DirectionL=cw;
             Stepper_DirectionR=ccw;
             break;
         case Left:
-            OC1R=10000/2;
+            OC3R=10000/2;
+            OC3RS=9999;
             Stepper_DirectionL=cw;
             Stepper_DirectionR=cw;
             break;
         case Right:
-            OC1R=10000/2;
+            OC3R=10000/2;
+            OC3RS=9999;
             Stepper_DirectionL=ccw;
             Stepper_DirectionR=ccw;
             break;
         case Stop:
-            OC1R=0;
+            OC3R=0;
+            OC3RS=fast;
             break;
         case RightC:
-            OC1R=10000/2;
+            OC3R=10000/2;
             Stepper_DirectionL=ccw;
             Stepper_DirectionR=ccw;
             break;
